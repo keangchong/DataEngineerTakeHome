@@ -1,6 +1,6 @@
 # Data Modeling Explanation
 There are 3 major data modeling design patterns for data warehousing, they are Inmon, Kimball, and Data Vault. 
-They each their advantages and disadvantages.
+They each have their advantages and disadvantages.
 For example, the Inmon data model is very useful for having a single source of truth for reporting purposes, but require extensive ETL resources to build and maintain their pipelines.
 This creates a centralized enterprise data warehouse. 
 
