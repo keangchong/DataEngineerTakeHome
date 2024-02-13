@@ -35,6 +35,19 @@ Pipe objects do not support the **PURGE** copy option. Therefore Snowpipe cannot
  
 2. Let's say the above data is in our Snowflake database and the end users are asking for delivery of insights. How could we make aggregated data available for an external user to consume? Give consideration to whether the client wants the data pushed to them versus available for them to pull when needed. Assume the data cannot be passed via an emailed csv.
 
+There are a few different ways we can make the aggregated data available for an external user or group to consume. If the client is internal within the organization we can create a Snowflake db for which their group would have read access to. They would then be able to query the aggregated data as they please. Alternatively if the client has a need to consume the aggregated data into an application and are able to call APIs; they can call Snowflake's sql statement execution API. which should return a ResultSet object upon successful statement execution. There are also various drivers that downstream applications are able to use depending on their tech stack that can also query data from snowflake db and tables. The drivers currently available are:
+* Go
+* JDBC
+* .NET
+* Node.js
+* ODBC
+* PHP
+* Python
+
+For situations where the client wants the data pushed to them, we can keep a meta-data table of the different tables that the client wishes to consume. Ideally the tables will have timestamp data so we can keep track of when the last data unload was. Otherwise we will have to do full unloads. By keeping track of the meta data, we can unload deltas of the data into external stages. From the external stage we can then use ADF (or any other data orchestration tool) to move the data into its desired location.
+
+
+
 
 
 
