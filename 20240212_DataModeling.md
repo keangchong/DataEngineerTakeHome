@@ -26,7 +26,7 @@ Some questions I would ask for the data model:
     In a worst case scenario, what DR protocols need to be put in place (both on source and DE team side)
 
 With the given sample data, I think a Data Vault data model could potentially be the most effective because of its "insert-optimized" mindset. 
-Since the data given is very likely to be streaming data (EVENTHUBID and LOGGED Timestamp is a big clue to this). An insert-optimized data model can prove to be advantageous when handling multiple and various streaming sources.
+Since the data given is very likely to be streaming data (EVENTHUBID and LOGGED Timestamp is a big clue to this). An insert-optimized data model can prove to be advantageous when handling multiple and varied streaming sources.
 However, I don't have much experience in building out Data Vault Data Models. In my current environment we have a Kimball style Data Model strategy. This is because our current reporting structure is very focused on providing our business colleagues with the tools to build dashboards necesarry for their operational function.
 
 Some additional data that would be helpful are:
